@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
 
 body{
-    background-color: #0D0D0D;
+background-color: #0D0D0D;
 }
 
 .header{
@@ -22,7 +22,6 @@ align-items: center;
 width: 4vw;
 height: auto;
 background: url(image.png);
-
 }
 
 .name{
@@ -38,11 +37,48 @@ line-height: 57px;
 color: #FFFFFF;
 }
 
+.usser {
+margin-left: auto; 
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0 12vh;
+background: radial-gradient(50.79% 520.79% at 50% 50%, #D9D9D9 5.17%, #0d0d0d54 80.75%);
+border-radius: 5px;
+height: 54px;
+width: auto;
+}
+
+.name-text{
+width: 72px;
+height: 48px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 48px;
+text-align: center;
+
+color: #675C5C;
+}
+
+.basket {
+width: 50px;
+height: 50px;
+margin-left: 15px; 
+position: static; 
+float: none;
+
+}
+
 .theme{
-position: absolute;
+    margin-left: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 width: 74px;
 height: 25px;
-
 background: #4599BD;
 border-radius: 70px;
 }
