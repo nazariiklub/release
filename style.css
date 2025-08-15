@@ -1,84 +1,116 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
 
-body{
-background-color: #0D0D0D;
+body {
+  background-color: #0D0D0D;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.header{
-box-sizing: border-box;
+body[theme=light] {
+  background-color: skyblue;
+  color: #000;
+}
 
-width: 100%;
-height: 94px;
+body[theme=dark] {
+  background-color: #0D0D0D;
+  color: #fff;
+}
 
-background: #0D0D0D;
-border: 1px solid #363434;
-border-radius: 8px 8px 10px 10px;
-display: flex;
-flex-direction: row;
-align-items: center;
+.header {
+  box-sizing: border-box;
+  width: calc(100% - 2rem); 
+  margin: 1rem auto;
+  padding: 0 1rem;
+  height: 5vw;
+  min-height: 60px; 
+  background: #0D0D0D;
+  border: 1px solid #363434;
+  border-radius: 8px 8px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-width: 4vw;
-height: auto;
-background: url(image.png);
+  width: 4vw;
+  min-width: 40px;
+  height: auto;
 }
 
-.name{
-width: 3vw;
-height: auto;
-
-font-family: 'MuseoModerno';
-font-style: normal;
-font-weight: 400;
-font-size: 1.5vw;
-line-height: 57px;
-
-color: #FFFFFF;
+.name {
+  font-family: 'MuseoModerno', sans-serif;
+  font-weight: 400;
+  font-size: 1.5vw;
+  color: #FFFFFF;
 }
 
-.usser {
-margin-left: auto; 
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 0 12vh;
-background: radial-gradient(50.79% 520.79% at 50% 50%, #D9D9D9 5.17%, #0d0d0d54 80.75%);
-border-radius: 5px;
-height: 54px;
-width: auto;
+.name-text {
+  padding: 0 2rem;
+  background: radial-gradient(circle, rgba(217,217,217,0.9) 0%, rgba(13,13,13,0) 80%);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d9d9d9;
 }
 
-.name-text{
-width: 72px;
-height: 48px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 40px;
-line-height: 48px;
-text-align: center;
-
-color: #675C5C;
+.left, .right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .basket {
-width: 50px;
-height: 50px;
-margin-left: 15px; 
-position: static; 
-float: none;
-
+  width: 35px;
+  height: auto;
+  cursor: pointer;
 }
 
-.theme{
-    margin-left: auto; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-width: 74px;
-height: 25px;
-background: #4599BD;
-border-radius: 70px;
+/* Епічний перемикач теми */
+#theme-toggle {
+  display: none;
+}
+
+#theme-toggle + label {
+  margin-top: 2px;
+  display: inline-block;
+  cursor: pointer;
+  height: 35px; 
+  width: 35px;  
+  border-radius: 50%;
+  background-color: gold;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+
+#theme-toggle:checked + label {
+  background-color: transparent;
+  box-shadow: inset -12px -12px 1px 1px #fff;
+}
+
+.text-sun, .text-moon {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 0 5px;
+  transition: color 0.5s ease-in-out;
+}
+
+body[theme=dark] .text-sun { color: rgba(0,0,0,0.2); }
+body[theme=dark] .text-moon { color: rgba(255,255,255,1); }
+body[theme=light] .text-sun { color: rgba(0,0,0,1); }
+body[theme=light] .text-moon { color: rgba(255,255,255,0.2); }
+
+@media (max-width: 768px) {
+  .logo { width: 3vw; min-width: 40px; }
+  .basket { width: 20px; }
+  .name-text { font-size: 1rem; line-height: 35px; border-radius: 3px; }
+  #theme-toggle + label {height: 20px; width: 20px;}
+  #theme-toggle:checked + label {box-shadow: inset -7px -7px 1px 1px #fff;}
 }
