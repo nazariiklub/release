@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Coral+Pixels&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montaga&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap');
+
+
 
 body {
   background-color: #0D0D0D;
   margin: 0;
   padding: 0;
-  font-family: 'Outfit', sans-serif;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -72,7 +74,7 @@ body[theme=dark] {
   cursor: pointer;
 }
 
-/* Епічний перемикач теми */
+
 #theme-toggle {
   display: none;
 }
@@ -114,3 +116,70 @@ body[theme=light] .text-moon { color: rgba(255,255,255,0.2); }
   #theme-toggle + label {height: 20px; width: 20px;}
   #theme-toggle:checked + label {box-shadow: inset -7px -7px 1px 1px #fff;}
 }
+
+.stitle{
+
+font-family: "Exo 2", sans-serif;
+font-weight: 600;
+font-size: 48px;
+line-height: 58px;
+text-align: center;
+
+color: #695959;
+
+}
+
+.slider {
+  position: relative;
+  width: 700px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.slide {
+  display: flex;
+  transition: transform 0.5s ease;
+  min-width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.slide img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.slide .text {
+  max-width: 350px;
+}
+
+.slide h2 {
+  font-family: "Exo 2", sans-serif;
+  font-size: 24px;
+  margin: 0 0 10px 0;
+}
+
+.slide p {
+  font-family: "Exo 2", sans-serif;
+  font-size: 16px;
+  color: #695959;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
