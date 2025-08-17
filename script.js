@@ -1,33 +1,88 @@
 const toggle = document.getElementById('theme-toggle');
-
-// Якщо за замовчуванням темна тема, ставимо атрибут і чек
-document.body.setAttribute('theme', 'dark');
-toggle.checked = true;
-
-toggle.addEventListener('click', () => {
-  document.body.setAttribute('theme', toggle.checked ? 'dark' : 'light');
-});
-
 const slides = document.querySelectorAll('.slide');
+const slidesContainer = document.querySelector('.slides');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
-let current = 0;
+const dotsContainer = document.querySelector('.dots');
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.style.transform = `translateX(${100 * (i - index)}%)`;
+let current = 0;
+let interval;
+
+
+function applyTheme(theme) {
+  document.body.setAttribute('theme', theme);
+  toggle.checked = theme === 'dark'; 
+}
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  applyTheme(savedTheme);
+} else {
+  applyTheme('dark'); 
+}
+
+toggle.addEventListener('click', () => {
+  const newTheme = toggle.checked ? 'dark' : 'light';
+  applyTheme(newTheme);
+  localStorage.setItem('theme', newTheme); 
+});
+
+
+function createDots() {
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      current = i;
+      updateSlider();
+      resetInterval();
+    });
+    dotsContainer.appendChild(dot);
+  });
+}
+createDots();
+
+function updateSlider() {
+  slidesContainer.style.transform = `translateX(-${current * 100}%)`;
+  document.querySelectorAll('.dots button').forEach((dot, i) => {
+    dot.classList.toggle('active', i === current);
   });
 }
 
+
 next.addEventListener('click', () => {
   current = (current + 1) % slides.length;
-  showSlide(current);
+  updateSlider();
+  resetInterval();
 });
 
 prev.addEventListener('click', () => {
   current = (current - 1 + slides.length) % slides.length;
-  showSlide(current);
+  updateSlider();
+  resetInterval();
 });
 
-showSlide(current);
 
+function autoPlay() {
+  interval = setInterval(() => {
+    current = (current + 1) % slides.length;
+    updateSlider();
+  }, 4000);
+}
+
+function resetInterval() {
+  clearInterval(interval);
+  autoPlay();
+}
+
+
+slidesContainer.addEventListener('mouseenter', () => {
+  clearInterval(interval); 
+});
+
+slidesContainer.addEventListener('mouseleave', () => {
+  autoPlay(); 
+});
+
+updateSlider();
+autoPlay();
