@@ -392,7 +392,7 @@ body[theme=light] .text-moon { color: rgba(255,255,255,0.2); }
 footer{
 
 width: 100%;
-height: 64px;
+height: auto;
 background: #3A3333;
 margin-top: 5%;
 
@@ -480,6 +480,11 @@ height: 40px;
   align-items: center;
 }
 
+a {
+  text-decoration: none; 
+  color: inherit;     
+}
+
 @media (max-width: 768px) {
   .logo { width: 3vw; min-width: 40px; }
   .basket { width: 20px; }
@@ -534,6 +539,25 @@ height: 40px;
     height: 10px;
   }
 
+    footer {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+
+  .footer-left, .footer-right {
+    justify-content: center;
+  }
+
+  .copyright, .great, .social {
+    font-size: 16px;
+  }
+
+  .soc-icon {
+    width: 28px;
+    height: 28px;
+  }
+
 
 }
 
@@ -557,6 +581,61 @@ height: 40px;
     display: block;
     text-align: center;
     margin-top: 5px;
-      transform: translate(-70px, -50px);
+    transform: translate(-70px, -50px);
   }
 }
+
+
+ #sideModal {
+    position: fixed;
+    right: -350px; /* спочатку ховаємо праворуч */
+    top: 20px;
+    width: 300px;
+    background: #fff;
+    border-radius: 12px 0 0 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: right 0.5s ease;
+    z-index: 9999;
+    font-family: sans-serif;
+  }
+
+  #sideModal.show {
+    right: 0; /* з'являється */
+  }
+
+  .modal-inner {
+    padding: 20px;
+    position: relative;
+  }
+
+  .modal-inner h3 {
+    margin: 0 0 10px 0;
+  }
+
+  .modal-inner p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+  }
+
+  .modal-inner button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  .modal-inner button:hover {
+    background: #45a049;
+  }
+
+  .close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+  }

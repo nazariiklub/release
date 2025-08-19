@@ -86,3 +86,17 @@ slidesContainer.addEventListener('mouseleave', () => {
 
 updateSlider();
 autoPlay();
+
+// Показати бокове повідомлення через 30 секунд
+setTimeout(() => {
+  const modal = document.getElementById("sideModal");
+  modal.classList.add("show");
+}, 30000);
+
+// Закриття повідомлення
+document.querySelector("#sideModal .close").onclick = () => {
+  document.getElementById("sideModal").classList.remove("show");
+};
+
+
+
