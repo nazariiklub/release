@@ -586,56 +586,118 @@ a {
 }
 
 
- #sideModal {
-    position: fixed;
-    right: -350px; /* спочатку ховаємо праворуч */
-    top: 20px;
-    width: 300px;
-    background: #fff;
-    border-radius: 12px 0 0 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: right 0.5s ease;
-    z-index: 9999;
-    font-family: sans-serif;
-  }
-
-  #sideModal.show {
-    right: 0; /* з'являється */
-  }
-
-  .modal-inner {
-    padding: 20px;
-    position: relative;
-  }
-
-  .modal-inner h3 {
-    margin: 0 0 10px 0;
-  }
-
-  .modal-inner p {
-    margin: 0 0 15px 0;
-    font-size: 14px;
-  }
-
-  .modal-inner button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 6px;
-    background: #4CAF50;
-    color: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s;
-  }
-
-  .modal-inner button:hover {
-    background: #45a049;
-  }
-
-  .close {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    font-size: 18px;
-    cursor: pointer;
-  }
+#sideModal {
+position: fixed;
+right: -350px;
+top: 20px;
+width: 300px;
+background: #fff;
+border-radius: 12px 0 0 12px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+transition: right 0.5s ease;
+z-index: 9999;
+font-family: sans-serif;
+}
+#sideModal.show {
+right: 0;
+}
+.modal-inner {
+padding: 20px;
+position: relative;
+}
+.modal-inner h3 {
+margin: 0 0 10px 0;
+}
+.modal-inner p {
+margin: 0 0 15px 0;
+font-size: 14px;
+}
+.modal-inner button {
+padding: 8px 16px;
+border: none;
+border-radius: 6px;
+background: #4CAF50;
+color: #fff;
+cursor: pointer;
+font-size: 14px;
+transition: 0.3s;
+}
+.modal-inner button:hover {
+background: #45a049;
+}
+.close {
+position: absolute;
+top: 8px;
+right: 10px;
+font-size: 18px;
+cursor: pointer;
+}
+#cartModal {
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+z-index: 9999;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.7);
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+}
+#cartModal.show {
+opacity: 1;
+pointer-events: all;
+}
+.modal-content {
+background: #1e1e1e;
+color: #fff;
+padding: 30px 25px;
+border-radius: 15px;
+max-width: 400px;
+width: 90%;
+text-align: center;
+position: relative;
+box-shadow: 0 0 20px rgba(0,0,0,0.5);
+animation: slideDown 0.5s ease-out;
+}
+@keyframes slideDown {
+from {transform: translateY(-50px); opacity: 0;}
+to {transform: translateY(0); opacity: 1;}
+}
+.modal-content h2 {
+margin: 0 0 15px 0;
+font-size: 22px;
+color: #ff4c4c;
+}
+.modal-content p {
+font-size: 16px;
+margin-bottom: 25px;
+}
+.modal-content button {
+padding: 10px 20px;
+border: none;
+border-radius: 8px;
+background: #ff4c4c;
+color: #fff;
+font-size: 16px;
+cursor: pointer;
+transition: 0.3s;
+}
+.modal-content button:hover {
+background: #e03e3e;
+}
+.close {
+position: absolute;
+top: 10px;
+right: 15px;
+font-size: 22px;
+font-weight: bold;
+cursor: pointer;
+color: #fff;
+}
+.close:hover {
+color: #ff4c4c;
+}

@@ -87,16 +87,41 @@ slidesContainer.addEventListener('mouseleave', () => {
 updateSlider();
 autoPlay();
 
-// Показати бокове повідомлення через 30 секунд
 setTimeout(() => {
   const modal = document.getElementById("sideModal");
   modal.classList.add("show");
 }, 30000);
 
-// Закриття повідомлення
 document.querySelector("#sideModal .close").onclick = () => {
   document.getElementById("sideModal").classList.remove("show");
 };
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const cartModal = document.getElementById("cartModal");
+  const basketImg = document.getElementById("basket");
+  const closeBtn = document.getElementById("closeBtn");
+  const closeX = document.getElementById("closeX"); 
+
+  basketImg.addEventListener("click", () => {
+    cartModal.classList.add("show");
+  });
+
+
+  closeBtn.addEventListener("click", () => {
+    cartModal.classList.remove("show");
+  });
+
+
+  closeX.addEventListener("click", () => {
+    cartModal.classList.remove("show");
+  });
+
+
+  cartModal.addEventListener("click", (e) => {
+    if(e.target === cartModal) {
+      cartModal.classList.remove("show");
+    }
+  });
+});
 
