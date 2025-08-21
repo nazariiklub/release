@@ -125,3 +125,46 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  let userName = localStorage.getItem("userName");
+
+  if (!userName) {
+    userName = prompt("Введіть своє ім'я:");
+    if (userName && userName.trim() !== "") {
+      localStorage.setItem("userName", userName);
+    } else {
+      userName = "Гість";
+    }
+  }
+
+
+  const nameText = document.querySelector(".name-text");
+  if (nameText) {
+    nameText.textContent = userName;
+  }
+
+
+  const modalInner = document.querySelector("#sideModal .modal-inner h3");
+  if (modalInner) {
+    modalInner.innerHTML = `Вітаю, ${userName}!<br>` + modalInner.innerHTML;
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nameText = document.querySelector(".name-text");
+  const modalInner = document.querySelector("#sideModal .modal-inner h3");
+
+  if (nameText) {
+    nameText.addEventListener("click", () => {
+      let newName = prompt("Введіть нове ім'я:", localStorage.getItem("userName") || "");
+      if (newName && newName.trim() !== "") {
+        localStorage.setItem("userName", newName);
+        nameText.textContent = newName;
+
+        if (modalInner) {
+          modalInner.innerHTML = `Вітаю, ${newName}!<br>Не знаєте, що вибрати?`;
+        }
+      }
+    });
+  }
+});

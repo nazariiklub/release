@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформлення замовлення</title>
+  <link rel="icon" href="browser_logo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="second.css">
+  <style>
+/* 🔥 Базові стилі */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg, #111);
+  color: var(--text, #fff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== MAIN ===== */
+main {
+  flex: 1; /* щоб футер не злітав */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2vw;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.order-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  margin: 2vw;
+  padding: 2vw;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  background: var(--container-bg, transparent);
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.user-info h2 {
+  margin-bottom: 10px;
+}
+
+.user-info input {
+  width: 100%;
+  max-width: 350px;
+  min-height: 50px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.user-info input:focus {
+  outline: none;
+  border-color: #666;
+  box-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
+/* ===== BUTTON ===== */
+.buy {
+  padding: 15px 25px;
+  font-size: 18px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  background: linear-gradient(90deg, #ff4500, #d63d00);
+  color: white;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buy:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--bg, #fff);
+  color: var(--text, #000);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #222;
+  color: white;
+  transition: 0.3s;
+}
+
+.modal button:hover {
+  background: #444;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px) {
+  .order-container {
+    max-width: 95%;
+    padding: 5vw;
+  }
+
+  .user-info input {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .buy {
+    width: 100%;
+  }}
+ </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="left">
+      <img class="logo" src="logo.png" alt="logo">
+      <p class="name">Fabula</p>
+    </div>
+    <div class="right">
+      <div class="theme">
+        <input type="checkbox" id="theme-toggle" checked>
+        <label for="theme-toggle"></label>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div style="display: flex; flex-direction: row; gap: 1vw; margin: 1vw;">
+      <a href="index.html">
+        <button class="back">&lt;</button>
+      </a>
+      <p class="title" style="font-weight: 600; font-size: 25px;">Оформлення замовлення</p>
+    </div>
+
+    <div class="order-container" style="display: flex; flex-direction: column; gap: 2vw; margin: 2vw;align-items: center;">
+      <div class="user-info" style="display: flex; flex-direction: column; gap: 1vw;align-items: center;justify-content: center;">
+        <h2>Ваші дані</h2>
+        <input type="text" id="name" placeholder="👤 Ім'я та прізвище">
+        <input type="tel" id="phone" placeholder="📞 Телефон">
+        <input type="text" id="address" placeholder="📦 Адреса доставки">
+        <input type="email" id="email" placeholder="✉️ Email">
+      </div>
+
+      <button  id="submit-order" class="buy" >Оформити замовлення</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <p class="copyright">© Shakal2025 all right reserved</p>
+      <p class="what">|</p>
+      <p class="great">Підтримати нас💸</p>
+    </div>
+    <div class="footer-right">
+      <div class="soc">
+        <p class="social">Наші соцмережі</p>
+        <div class="soc-icons">
+          <img class="soc-icon" src="basket.png" alt="">
+          <p class="what">|</p>
+          <img class="soc-icon" src="basket.png" alt="">
+          <p class="what">|</p>
+          <img class="soc-icon" src="basket.png" alt="">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 🔥 Модальне вікно -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2>✅ Замовлення оформлено!</h2>
+      <p id="order-summary"></p>
+      <button onclick="closeModal()">Закрити</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script  >
+    const modal = document.getElementById('modal');
+    const orderSummary = document.getElementById('order-summary');
+
+    document.getElementById('submit-order').addEventListener('click', () => {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      // ✅ Валідація
+      if (!name || !phone || !address || !email) {
+        alert('Будь ласка, заповніть всі поля!');
+        return;
+      }
+      if (!/^[\+]?[\d\s\-]{7,15}$/.test(phone)) {
+        alert('Введіть правильний номер телефону!');
+        return;
+      }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        alert('Введіть коректний Email!');
+        return;
+      }
+
+      // Показ резюме
+      orderSummary.innerHTML = `
+        👤 Ім’я: <b>${name}</b><br>
+        📞 Телефон: <b>${phone}</b><br>
+        📦 Адреса: <b>${address}</b><br>
+        ✉️ Email: <b>${email}</b><br>
+        <b style="font-weight: 500;" >Ми зв'яжемося з вами найближчим часом</b>
+      `;
+      modal.style.display = 'flex';
+    });
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  </script>
+</body>
+</html>
