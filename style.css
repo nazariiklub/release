@@ -272,6 +272,11 @@ body[theme=light] .text-moon { color: rgba(255,255,255,0.2); }
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover{
+  transform: scale(1.1);
 }
 
 .stitle {
@@ -291,15 +296,15 @@ body[theme=light] .text-moon { color: rgba(255,255,255,0.2); }
   transform: translate(-120px, -50px);
   
 }
-/* Контейнер слайдера під хедером */
+
 .slider {
   position: relative;
-  width: 100%;          /* повна ширина екрана */
-  max-width: 100vw;     /* точно не буде більше екрану */
-  height: 50vh;         /* половина висоти вікна, можна змінити */
+  width: 100%;        
+  max-width: 100vw;    
+  height: 50vh;         
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 12px 12px 0 0; /* щоб не врізався в хедер */
+  border-radius: 12px 12px 0 0; 
   box-sizing: border-box;
 }
 

@@ -12,7 +12,7 @@ body[theme=light] .game-card:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* Назва гри */
+
 body[theme=light] .game-name {
   background: rgba(255, 255, 255, 0.4);
   color: #111;
@@ -37,7 +37,7 @@ body[theme=light] .price:hover {
   background: rgba(255, 255, 255, 0.7);
 }
 
-/* Кнопка купити */
+
 body[theme=light] .buy {
   background: rgba(255, 100, 70, 0.9);
   color: #fff;
@@ -52,7 +52,7 @@ body[theme=light] .buy:hover {
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* Зображення гри */
+
 body[theme=light] .game-img {
   border-radius: 14px;
   border: 1px solid rgba(200,220,255,0.35);
