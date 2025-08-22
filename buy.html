@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="second.css">
   <style>
-/* 🔥 Базові стилі */
 body {
   margin: 0;
   padding: 0;
@@ -20,9 +19,9 @@ body {
   flex-direction: column;
 }
 
-/* ===== MAIN ===== */
+
 main {
-  flex: 1; /* щоб футер не злітав */
+  flex: 1; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -78,7 +77,6 @@ main {
   box-shadow: 0 0 8px rgba(255,255,255,0.2);
 }
 
-/* ===== BUTTON ===== */
 .buy {
   padding: 15px 25px;
   font-size: 18px;
@@ -99,9 +97,6 @@ main {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-
-
-/* ===== MODAL ===== */
 .modal {
   position: fixed;
   inset: 0;
@@ -143,7 +138,6 @@ main {
   background: #444;
 }
 
-/* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
   .order-container {
     max-width: 95%;
@@ -177,9 +171,7 @@ main {
 
   <main>
     <div style="display: flex; flex-direction: row; gap: 1vw; margin: 1vw;">
-      <a href="index.html">
-        <button class="back">&lt;</button>
-      </a>
+<button class="back" onclick="history.back()">&lt;</button>
       <p class="title" style="font-weight: 600; font-size: 25px;">Оформлення замовлення</p>
     </div>
 
@@ -205,18 +197,17 @@ main {
     <div class="footer-right">
       <div class="soc">
         <p class="social">Наші соцмережі</p>
-        <div class="soc-icons">
-          <img class="soc-icon" src="basket.png" alt="">
-          <p class="what">|</p>
-          <img class="soc-icon" src="basket.png" alt="">
-          <p class="what">|</p>
-          <img class="soc-icon" src="basket.png" alt="">
-        </div>
+          <div class="soc-icons">
+        <a href="https://www.instagram.com/"><img class="soc-icon" src="social_icons/instagram.png" alt=""></a>
+        <p class="what">|</p>
+        <a href="https://telegram.org/LOGIN%20WEB?setln=uk"><img class="soc-icon" src="social_icons/telegram.png" alt=""></a>
+        <p class="what">|</p>
+        <a href="https://www.tiktok.com/"><img class="soc-icon" src="social_icons/tiktok.png" alt=""></a>
+      </div>
       </div>
     </div>
   </footer>
 
-  <!-- 🔥 Модальне вікно -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <h2>✅ Замовлення оформлено!</h2>
@@ -236,7 +227,6 @@ main {
       const address = document.getElementById('address').value.trim();
       const email = document.getElementById('email').value.trim();
 
-      // ✅ Валідація
       if (!name || !phone || !address || !email) {
         alert('Будь ласка, заповніть всі поля!');
         return;
@@ -250,7 +240,6 @@ main {
         return;
       }
 
-      // Показ резюме
       orderSummary.innerHTML = `
         👤 Ім’я: <b>${name}</b><br>
         📞 Телефон: <b>${phone}</b><br>
